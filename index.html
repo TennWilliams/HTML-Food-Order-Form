@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wingz Order Form</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body style="background-color: lightskyblue;">
+    <h1 style="color:cornflowerblue;">Tennille's Wingz & Thingz</h1>
+    <p> <i>Refresh here to see your changes</i></p>
+    <img src="Air-Fryer-Buffalo-Wings-Good-Food-Baddie.jpg" height=150 width=150>
+    <h2 style="color: navy;">Place Your Order</h2>
+   
+    
+    <!-- We will put our React component inside this div. -->
+    <div id="root"></div>
+
+    <h3 style="color:blue;"> Recent Order:</h3>
+    <div id="most-recent-order"><div>
+      
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+  
+    <!-- Load our React component. -->
+    <script defer type="text/babel">
+
+class ReactIntro extends React.Component {
+  /**
+   * Function to handle submission of the wingz form. It will grab values from the element IDs, construct a string, and then both alert that string and add it to the DOm in the most-recent-order div.
+   * @param {*} event submit event, not used in this current implementation other than preventDefault()
+   */
+  handleSubmit(event) {
+    
+    event.preventDefault(); // prevent the page from refreshing
+    const count = document.getElementById("count").value;
+    const bone = document.getElementById("bone").checked;
+    const flavor = document.getElementById("flavor").value;
+    const fries = document.getElementById("fries").checked;
+    const additionalInstructions =
+      document.getElementById("add-instr").value || "None";
+    const nameForOrder =
+      document.getElementById("name-for-order").value || "Anonymous";
+    const quantity = document.getElementById("quantity").value || 1;
+
+    const orderStr = `${quantity} order(s) of ${count} piece ${flavor} wings that are ${
+      bone ? `boneless` : `traditional`} ${
+      fries ? `with fries` : `without fries`
+    } for ${nameForOrder} \n\n Instructions: ${additionalInstructions}`;
+
+    // shows your string in the most-recent-order div
+    document.getElementById("most-recent-order").innerText = orderStr;
+    // alerts order string in browser
+    alert(orderStr);
+  }
+  render() {
+    // html fields within the form provided below to take a wings order.
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div>Name:</div>
+           <input id="name-for-order" type="text"/>
+          <div>Count:</div>
+          <select id="count">
+            <option>five</option>
+            <option>ten</option>
+            <option>twenty</option> 
+          </select>
+          <div>Boneless</div>
+          <input id="bone" type="checkbox"/> 
+          <div>Flavor:</div>
+          <select id="flavor">
+            <option>honey bbq</option>
+            <option>sweet & spicy</option>
+            <option>buffalo</option> 
+            <option>teriyaki</option>
+            <option>naked</option>
+          </select>
+          <div>Add Fries</div>
+          <input id="fries" type="checkbox"/> 
+          <div>Quantity</div>
+          <input type="number" id="quantity" min="1" max="10"/>
+          <div>Additional Instructions:</div>
+          <textarea id="add-instr" cols="50" rows="3"/>
+          <input id="form-submit" type="submit" />
+        </form>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  React.createElement(ReactIntro),
+  document.getElementById("root")
+);
+
+</script>
+
+
+</body>
+</html>
