@@ -5,6 +5,6 @@ In this exercise I created an eye that follows the mouse cusor by using CSS to c
 
 Future improvments to this exercise is to add click effect to buttons and hoover message to input box.
 
-You can run this exercise by copying the code in VS code and opening the HTML file in a web broswer.
+You can view this project by clicking on the following link <a href="https://tennwilliams.github.io/HTML-Food-Order-Form/"> Wingz & Things Order Form </a> 
 
 License through MIT
