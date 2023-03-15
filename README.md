@@ -5,6 +5,6 @@ In this exercise I created an online food order form that allows you to select t
 
 Future improvments to this exercise is to add click effect to buttons and add a hover message when you hover over the input box.
 
-You can test this project by clicking on the following link <a href="https://tennwilliams.github.io/HTML-Food-Order-Form/"> Wingz & Things Order Form </a> 
+You can interactive with this project by clicking on the following link <a href="https://tennwilliams.github.io/HTML-Food-Order-Form/"> Wingz & Things Order Form </a> 
 
 License through MIT
